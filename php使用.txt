@@ -1,0 +1,20 @@
+1.安装后测试apache等是否可以启动
+
+tomcat有可能无法启动，跟java环境有关。需要安装版。而且64位系统只能安装64位java，
+并且最后要修改注册表，将jdk,jre的路径添加到默认值上面
+
+2.php环境变量设置
+
+将php路径添加到上下两个path中
+php -v可检测环境变量是否设置成功
+
+3.composer的安装
+
+manual download: composer.phar
+地址  ：  https://getcomposer.org/download/
+下载完毕后复制到php.exe所在目录
+同时添加文件composer.bat，内容为
+@ECHO OFF
+ php "%~dp0composer.phar" %*
+
+composer -v可以检测是否设置成功
