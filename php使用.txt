@@ -1,0 +1,54 @@
+1.安装后测试apache等是否可以启动
+
+tomcat有可能无法启动，跟java环境有关。需要安装版。而且64位系统只能安装64位java，
+并且最后要修改注册表，将jdk,jre的路径添加到默认值上面
+
+2.php环境变量设置
+
+将php路径添加到上下两个path中
+php -v可检测环境变量是否设置成功
+
+3.composer的安装
+
+manual download: composer.phar
+地址  ：  https://getcomposer.org/download/
+下载完毕后复制到php.exe所在目录
+同时添加文件composer.bat，内容为
+@ECHO OFF
+ php "%~dp0composer.phar" %*
+
+composer -v可以检测是否设置成功
+
+4.php composer都设置成功后，可以在想要添加插件的工程里添加composer.json文件，然后在工程目录下调用composer install,用来进行组件下载
+
+5.根据php的版本，下载xdebug
+例：php_xdebug-2.5.4-5.6-vc11.dll
+并放在php_home/ext目录下，然后在php.ini末尾添加
+[Xdebug]
+zend_extension="C:/tsoftwares/xampp/php/ext/php_xdebug-2.5.4-5.6-vc11.dll"
+
+
+配置中国区镜像
+有两种方式启用镜像服务：
+
+系统全局配置： 即将配置信息添加到 Composer 的全局配置文件 config.json 中。见“例1”
+单个项目配置： 将配置信息添加到某个项目的 composer.json 文件中。见“例2”
+例1：修改 composer 的全局配置文件（推荐方式）
+
+打开命令行窗口（windows用户）或控制台（Linux、Mac 用户）并执行如下命令：
+
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+
+
+
+
+
+
+相关链接：
+
+https://www.zhihu.com/question/22885542
+http://blog.csdn.net/csdn_dengfan/article/details/54912039
+https://www.cnblogs.com/qiantuwuliang/archive/2011/01/23/1942382.html
+
+
